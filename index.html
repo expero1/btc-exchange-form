@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bitcoin to USD converter</title>
+
+    <style>
+      .container {
+        display: block;
+        max-width: 50%;
+        margin: 0 auto;
+      }
+      .exchangeForm label {
+      }
+
+      .exchangeForm input {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <form class="exchangeForm">
+        <p>
+          <label
+            >Bitcoin exchange Rate
+            <input type="number" name="btcExchangeRate" id="btcExchangeRate" />
+          </label>
+        </p>
+        <p>
+          <label
+            >How much Bitcoins You have
+            <input type="number" name="btcAmount" id="btcAmount" />
+          </label>
+        </p>
+      </form>
+      <p id="usdAmountContainer">
+        You will recieve <span id="usdAmountValue"></span> USD
+      </p>
+    </main>
+    <script>
+      const exchangeForm = document.querySelector(".exchangeForm");
+      exchangeForm.addEventListener("input", (event) => {
+        const exchangeRate = document.querySelector("#btcExchangeRate").value;
+        const btcAmount = document.querySelector("#btcAmount").value;
+        const usdAmount = Number(btcAmount) * Number(exchangeRate);
+        document.querySelector("#usdAmountValue").innerHTML = usdAmount;
+      });
+    </script>
+  </body>
+</html>
