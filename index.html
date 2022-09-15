@@ -22,28 +22,28 @@
       <form class="exchangeForm">
         <p>
           <label
-            >Bitcoin exchange Rate
+            >What is Bitcoin price today?
             <input type="number" name="btcExchangeRate" id="btcExchangeRate" />
           </label>
         </p>
         <p>
           <label
-            >How much Bitcoins You have
-            <input type="number" name="btcAmount" id="btcAmount" />
+            >How much $ do you have?
+            <input type="number" name="usdAmount" id="btcAmount" />
           </label>
         </p>
       </form>
-      <p id="usdAmountContainer">
-        You will recieve <span id="usdAmountValue"></span> USD
+      <p id="btcAmountContainer">
+        You will recieve <span id="btcAmountValue"></span> BTC
       </p>
     </main>
     <script>
       const exchangeForm = document.querySelector(".exchangeForm");
       exchangeForm.addEventListener("input", (event) => {
         const exchangeRate = document.querySelector("#btcExchangeRate").value;
-        const btcAmount = document.querySelector("#btcAmount").value;
-        const usdAmount = Number(btcAmount) * Number(exchangeRate);
-        document.querySelector("#usdAmountValue").innerHTML = usdAmount;
+        const usdAmount = document.querySelector("#usdAmount").value;
+        const btcAmount = Number(usdAmount) / Number(exchangeRate);
+        document.querySelector("#btcAmountValue").innerHTML = btcAmount;
       });
     </script>
   </body>
